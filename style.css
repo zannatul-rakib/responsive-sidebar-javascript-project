@@ -88,10 +88,98 @@ body {
 
 /* navbar list  */
 .sidebar li {
-  height: 50px;
-  background: red;
+  height: 40px;
   margin-top: 10px;
   list-style: none;
   display: flex;
   align-items: center;
+}
+.sidebar li .icon {
+  font-size: 20px;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar li .icon,
+.sidebar li .text {
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+.sidebar li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  transition: var(--tran-04);
+}
+.sidebar li a:hover {
+  background: var(--primary-color);
+}
+.sidebar .search-box {
+  background: var(--primary-color-light);
+  border-radius: 5px;
+}
+.search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: var(--primary-color-light);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+  color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar {
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bottom-content .mode {
+  background: var(--primary-color-light);
+  border-radius: 5px;
+}
+.bottom-content .mode .moon-sun {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+.bottom-content .mode i {
+  position: absolute;
+}
+.bottom-content .mode i.sun {
+  opacity: 0;
+}
+.bottom-content .mode .toggle-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 100%;
+  cursor: pointer;
+}
+.toggle-switch .switch {
+  position: relative;
+  height: 22px;
+  width: 44px;
+  border-radius: 25px;
+  background: var(--toggle-color);
+}
+.switch::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  background: var(--sidebar-color);
 }
