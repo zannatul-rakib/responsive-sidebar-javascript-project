@@ -85,3 +85,13 @@ body {
   color: var(--sidebar-color);
   font-size: 22px;
 }
+
+/* navbar list  */
+.sidebar li {
+  height: 50px;
+  background: red;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
