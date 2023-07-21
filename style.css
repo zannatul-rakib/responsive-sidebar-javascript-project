@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap");
 
 * {
+  /* height: 100%; */
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -26,12 +27,24 @@
 body {
   height: 100vh;
   background: var(--body-color);
+  transition: var(--tran-04);
+}
+body.dark {
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
 }
 /* Reusable css  */
 .sidebar .text {
   font-size: 16px;
   font-weight: 500;
   color: var(--text-color);
+  transition: var(--tran-05);
+  white-space: nowrap;
+  opacity: 1;
 }
 .sidebar .image {
   min-width: 60px;
@@ -48,12 +61,19 @@ body {
   height: 100%;
   width: 250px;
   background: var(--sidebar-color);
+  transition: var(--tran-05);
+}
+.close {
+  width: 85px;
+}
+.close .text {
+  opacity: 0;
 }
 .sidebar header {
   position: relative;
 }
 .sidebar .image-text img {
-  width: 50px;
+  width: 40px;
   border-radius: 5px;
 }
 .sidebar header .image-text {
@@ -74,7 +94,7 @@ body {
   position: absolute;
   top: 50%;
   right: -25px;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(180deg);
   height: 25px;
   width: 25px;
   background: var(--primary-color);
@@ -83,7 +103,18 @@ body {
   justify-content: center;
   border-radius: 50%;
   color: var(--sidebar-color);
-  font-size: 22px;
+  font-size: 20px;
+  transition: var(--tran-02);
+}
+.sidebar.close header .toggle {
+  transform: translateY(-50%);
+}
+body.dark .sidebar header .toggle {
+  transform: rotate(180deg);
+  color: var(--text-color);
+}
+body.dark .sidebar header .toggle {
+  color: var(--text-color);
 }
 
 /* navbar list  */
@@ -120,19 +151,23 @@ body {
 }
 .sidebar .search-box {
   background: var(--primary-color-light);
-  border-radius: 5px;
+  border-radius: 6px;
 }
 .search-box input {
   height: 100%;
   width: 100%;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   background: var(--primary-color-light);
 }
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
   color: var(--sidebar-color);
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text {
+  color: var(--text-color);
 }
 
 .sidebar .menu-bar {
@@ -141,29 +176,43 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.bottom-content .mode {
+
+/* bottom & mode  */
+.sidebar .mode {
+  position: relative;
   background: var(--primary-color-light);
-  border-radius: 5px;
+  border-radius: 6px;
 }
-.bottom-content .mode .moon-sun {
+.sidebar .mode .moon-sun {
   height: 50px;
   width: 50px;
   display: flex;
   align-items: center;
 }
-.bottom-content .mode i {
+.sidebar .mode i {
   position: absolute;
+  transition: var(--tran-03);
 }
-.bottom-content .mode i.sun {
+.sidebar .mode i.sun {
   opacity: 0;
 }
-.bottom-content .mode .toggle-switch {
+body.dark .menu-bar .mode i.sun {
+  opacity: 1;
+}
+body.dark .menu-bar .mode i.moon {
+  opacity: 0;
+}
+.sidebar .mode .toggle-switch {
+  position: absolute;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 60px;
   height: 100%;
   cursor: pointer;
+  border-radius: 6px;
+  background: var(--primary-color-light);
 }
 .toggle-switch .switch {
   position: relative;
@@ -182,4 +231,9 @@ body {
   left: 5px;
   transform: translateY(-50%);
   background: var(--sidebar-color);
+  transition: var(--tran-03);
+}
+
+body.dark .switch::before {
+  left: 24px;
 }
